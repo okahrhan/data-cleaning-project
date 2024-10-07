@@ -1,7 +1,7 @@
 import csv
 
-with open('housing(Sheet1).csv', mode='r', encoding='utf-8') as bozuk_dosya:
-    reader = csv.reader(bozuk_dosya, delimiter=';')  # Bozuk dosya ; ile ayrılmış
+with open('housing(Sheet1).csv', mode='r', encoding='utf-8') as first:
+    reader = csv.reader(first, delimiter=';')  
     rows = list(reader)
 
 headers = [
@@ -10,9 +10,9 @@ headers = [
     'TotalValue', 'YearBuilt', 'Bedrooms', 'FullBath', 'HalfBath'
 ]
 
-with open('housing1.csv', mode='w', newline='', encoding='utf-8') as duzeltilmis_dosya:
-    writer = csv.writer(duzeltilmis_dosya)
-    writer.writerow(headers)  # Başlıkları yaz
+with open('housing1.csv', mode='w', newline='', encoding='utf-8') as second:
+    writer = csv.writer(second)
+    writer.writerow(headers)  
     
     for row in rows:
         if len(row) == len(headers):
@@ -20,4 +20,4 @@ with open('housing1.csv', mode='w', newline='', encoding='utf-8') as duzeltilmis
         else:
             pass
 
-print("Dosya başarıyla düzeltildi!")
+print("successfully !")
